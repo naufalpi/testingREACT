@@ -14,14 +14,23 @@
         const container = document.getElementById('root');
         const root = ReactDOM.createRoot(container);
         
-        function Header(){
-          return (<h1>Belajar REACT 🚀</h1>);
+        function Header({name}){
+          return (<h1>Belajar REACT {name ? name : 'Naufals'} 🚀 </h1>);
         }
 
         function HomePage(){
+
+          const [likes, setLikes] = React.useState(0);
+
+          function handleclick() {
+            setLikes(likes+1);
+          }
+
+
           return (
             <>
               <Header />
+              <button onClick={handleclick}>Like ({likes})</button>
             </>
           );
         }
